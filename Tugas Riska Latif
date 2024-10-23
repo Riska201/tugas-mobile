@@ -1,0 +1,20 @@
+class Motor {
+  String merk, warna;
+  Motor(this.merk, this.warna);
+  void tampilkanDetail(String tipe, int tahun, double harga) {
+    print(
+        'Merk: $merk, Warna: $warna, Tipe: $tipe, Tahun: $tahun, Harga: \$${harga.toStringAsFixed(2)}');
+  }
+  void hargaSetelahDiskon(
+      double diskonPersen, double pajakPersen, double hargaAwal) {
+    double diskon = hargaAwal * (diskonPersen / 100);
+    double pajak = (hargaAwal - diskon) * (pajakPersen / 100);
+    double hargaAkhir = hargaAwal - diskon + pajak;
+    print('Harga Setelah Diskon dan Pajak: \$${hargaAkhir.toStringAsFixed(2)}');
+  }
+}
+void main() {
+  Motor motorSaya = Motor('mio m3', 'Merah');
+  motorSaya.tampilkanDetail('yamaha', 2022, 30000.00);
+  motorSaya.hargaSetelahDiskon(10, 5, 30000.00);
+}
